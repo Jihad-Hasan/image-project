@@ -1,0 +1,85 @@
+:root {
+  --gutter: 20px;
+}
+html,
+body {
+  height: 1200px;
+}
+
+body {
+  display: grid;
+  place-items: center;
+}
+
+.app {
+  padding: var(--gutter) 0;
+  display: grid;
+  grid-gap: var(--gutter) 0;
+  grid-template-columns: var(--gutter) 1fr var(--gutter);
+  align-content: start;
+}
+
+.app>* {
+  grid-column: 2 / -2;
+}
+
+.app>.full {
+  grid-column: 1 / -1;
+}
+
+.hs {
+  display: grid;
+  grid-template-columns: 10px repeat(var(--total), calc(50% - var(--gutter) * 2)) 10px;
+  grid-template-rows: minmax(150px, 1fr);
+  scroll-snap-type: x proximity;
+}
+
+.hs:before,
+.hs:after {
+  content: '';
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+.app {
+  width: auto;
+  height: 1200px;
+  overflow-y: scroll;
+}
+
+.item_container {
+  margin-left: 115px;
+  margin-top: 162px;
+  gap: 30px;
+}
+
+.hs .item.active img {
+  border: 2px solid red;
+}
+
+.hs>li,
+.item {
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.cross-btn {
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  width: 95px;
+  height: 95px;
+}
